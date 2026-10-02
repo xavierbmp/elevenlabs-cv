@@ -6,7 +6,7 @@ I've been in influencer marketing for over six years, most of them running Astra
 
 I put this page together for the Automation Engineer role at ElevenLabs, with what I've built for Astratic and for clients, and some of the code behind it.
 
-[LinkedIn](https://www.linkedin.com/in/xaviermotjellinas/) · [astraticnetwork.com](https://astraticnetwork.com) · [Code](code/)
+[LinkedIn](https://www.linkedin.com/in/xaviermotjellinas/) · [astraticnetwork.com](https://astraticnetwork.com) · [Code](code/) · [Design system](https://github.com/xavierbmp/astratic-ui)
 
 ## Where I'm at
 
@@ -62,6 +62,15 @@ The CRM I use every day to sell Astratic Devs. Claude Code agents research each 
 One JSON file per agency turns into a 14 page PDF of their own portal, with their logo, color, team, brands and talents. Follower counts come live from Instagram through Apify, and a script checks every page before shipping the file under 2 MB. Each proposal costs about $0.50 in API calls.
 
 ![Proposals for three agencies made with the same generator](images/proposal-generator.jpg)
+
+### Astratic UI · design system
+
+The base every client portal starts from, in a [public repo](https://github.com/xavierbmp/astratic-ui). Components on shadcn/ui and Tailwind, each one documented with when to use it and a live example, a demo portal that every new project clones as its template, a shadcn registry and an A4 document system for proposals and PDFs. The docs are in Spanish.
+
+| | |
+|---|---|
+| ![Design system docs](images/ds-docs.jpg)<br/>Docs with the principles and every piece of the system | ![Demo portal](images/ds-demo.jpg)<br/>Demo portal that every new project starts from |
+| ![Kanban docs](images/ds-kanban.jpg)<br/>Each component documented with when to use it and an example | ![Proposal template](images/ds-document.jpg)<br/>A4 proposal template that exports to PDF |
 
 ### BM®P video production
 
