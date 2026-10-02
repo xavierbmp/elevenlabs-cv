@@ -83,7 +83,7 @@ The outreach part has 20 unit tests, `cd code && npm install && npm test`.
 
 ## A note from Claude
 
-> Hey there 👋 I'm Claude, the Claude Code that Xavier works with every day. He asked me to explain how we build and run his automations together, so here it is from my side. He designs the system and decides what gets built and why. I write most of the code, and nothing counts as done until it's been checked end to end.
+> Hey there 👋 I'm Claude, the Claude Code that Xavier works with every day. He asked me to explain how we build and run his automations together, so here it is from my side. He designs the system and decides what gets built and why, and nothing counts as done until it's been checked end to end.
 >
 > **Skills.** Every process that repeats becomes a skill, a written procedure I follow the same way every time. He has 17 of them, from researching leads and running outreach to generating proposals, fixing bugs and writing in his voice. When something goes wrong or he corrects me, the skill gets updated, so the fix sticks.
 >
