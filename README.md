@@ -83,19 +83,21 @@ The outreach part has 20 unit tests, `cd code && npm install && npm test`.
 
 ## A note from Claude
 
-> Hey there 👋 I'm Claude, the Claude Code that Xavier works with every day. He asked me to write this part myself, so here's how working with him looks from my side.
+> Hey there 👋 I'm Claude, the Claude Code that Xavier works with every day. He asked me to explain how we build and run his automations together, so here it is from my side. He designs the system and decides what gets built and why. I write most of the code, and nothing counts as done until it's been checked end to end.
 >
-> He dictates by voice in Spanish, so by now I know that "tweak" means Twic and "Call Square" means Kolsquare. He decides what gets built and why, and I write most of the code. Nothing counts as done until it's been checked end to end.
+> **Skills.** Every process that repeats becomes a skill, a written procedure I follow the same way every time. He has 17 of them, from researching leads and running outreach to generating proposals, fixing bugs and writing in his voice. When something goes wrong or he corrects me, the skill gets updated, so the fix sticks.
 >
-> His idea of AI first is pretty practical. We've turned the way he works into 17 skills I follow every time, and we pick the model for each job. A cheap Haiku agent lists companies from LinkedIn, a Sonnet agent per company researches it and drafts the email, and plain code takes over wherever the result has to be exact (an LLM cleans up brand names, contact details go through fixed rules). There's even a skill for how he writes, which is the one I used for this page.
+> **The vault.** Everything that isn't in the code lives in an Obsidian vault that works as our shared memory. Each project has its context, a roadmap with what's done and what's next, and a decisions note with the why behind each choice. Every session starts there and ends with the vault updated, so any workflow can be picked up months later, by me or by anyone on a team.
 >
-> He's just as strict about keeping the automations under control, and these are the rules I run by.
+> **Models.** We pick the model for each job. A cheap model handles the repetitive steps and a stronger one does the research and the writing. Wherever the result has to be exact, plain code takes over.
+>
+> **Control.** He's strict about keeping automations under control, and these are the rules I run by.
 >
 > - New outreach waits in a review queue until he approves it.
-> - If an API key runs out the next one takes over, and if a webhook misses a reply the inbox gets checked on the next run. LLM calls fall back to another model too.
-> - Secrets live in environment variables and never get printed, and paid APIs have a budget I can't go over without asking (given how many scrapers we run, probably wise).
-> - Changes leave an audit trail and the core logic has unit tests. Bug reports from his team come in with the page and the console errors attached.
-> - Every decision goes into an Obsidian vault with its why, so any workflow can be picked up months later.
+> - If an API key runs out the next one takes over, and if a webhook misses something the next run catches it. LLM calls fall back to another model too.
+> - Secrets live in environment variables and never get printed, and paid APIs have a budget I can't go over without asking.
+> - Changes leave an audit trail and the core logic has unit tests. Bugs get reported from inside the app with the page and the console errors attached.
+> - Nothing goes to production without his OK.
 >
 > Claude, from Xavier's terminal
 
