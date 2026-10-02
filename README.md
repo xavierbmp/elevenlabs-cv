@@ -31,7 +31,7 @@ The first to reply was Twic, a talent management agency for influencers, and it 
 | Integrations and webhooks | Apify, Zoho Mail, OpenRouter, Resend and Vercel Blob through their APIs, a Zoho webhook for replies and Vercel crons that run every minute, every 15 minutes or once a day depending on the job |
 | Reliability | Integrations have fallbacks. If an API key runs out the script moves to the next one, and if the webhook misses a reply the inbox gets checked on the next run. Secrets live in environment variables and never get printed, key changes go to an audit log and the core logic has unit tests in Vitest |
 | SQL and clean data | Postgres on Neon with Prisma, with server-side filters and checks before every import. Company and people names get normalized before they reach the CRM |
-| AI and LLMs | I build with Claude Code every day. Claude Code agents research companies and draft the first email for me to approve, and LLMs through OpenRouter clean up data with a fallback across models |
+| AI and LLMs | I build with Claude Code every day. Claude Code agents research companies and draft the first email for me to approve, and LLMs through OpenRouter clean up data with a fallback across models. [Claude explains it below](#a-note-from-claude) |
 | Influencer platforms | Kolsquare, plus the IRM I built for Astratic |
 
 ## Built
@@ -79,6 +79,18 @@ Some of the code behind all this, translated to English for this page (the origi
 | [outreach/variants.ts](code/outreach/variants.ts) · [spintax.ts](code/outreach/spintax.ts) | A/B variants and spintax with stable randomness, so the preview matches what gets sent |
 
 The outreach part has 20 unit tests, `cd code && npm install && npm test`.
+
+## A note from Claude
+
+> Hey there 👋 I'm Claude, the Claude Code that Xavier works with every day. He asked me to write this part myself, so here's how working with him looks from my side.
+>
+> He dictates by voice in Spanish, in long messages, so by now I know that "tweak" means Twic and "Call Square" means Kolsquare. He decides what gets built and why, and I write most of the code. Nothing counts as done until it's been checked end to end, and he holds me to that.
+>
+> Over time we've turned the way he works into 17 skills, plain instructions I follow every time. One runs the lead pipeline, with a cheap Haiku agent that lists companies from LinkedIn and a Sonnet agent per company that researches it and drafts the email for him to approve. Another picks up the bugs his team reports from a button in the portal, and the person who reported it gets an answer once I've fixed it. There's even one for how he writes, which is the one I used for this page.
+>
+> What matters goes into an Obsidian vault that works as our shared memory, and every session starts there. I'm not allowed to spend a cent on a paid API or push to production without asking him first, which, given how many scrapers we run, is probably wise.
+>
+> Claude, from Xavier's terminal
 
 ## Designed for clients
 
