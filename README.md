@@ -12,7 +12,7 @@ I put this page together for the Automation Engineer role at ElevenLabs, with wh
 
 I'm looking for a job doing exactly what this role describes, building the automations behind a creator program. I didn't want to sit and wait for answers, so in September I turned what I'd built for Astratic into a service, Astratic Devs, and started pitching custom portals to agencies.
 
-I built the outreach for it myself, with agents that research each agency and an engine that sends the emails (the code is [here](code/outreach/)). Around 30 agencies got an email in the first week, and the first reply, from Feedback Marketing's CEO, turned into a full proposal. Everything under [Designed for clients](#designed-for-clients) comes from that month.
+The first to reply was Twic, a talent management agency for influencers, and it turned into a 31 page proposal for their own portal ([full PDF](docs/twic-portal-proposal.pdf)). I also built my own outreach, with agents that research each agency and an engine that sends the emails (the code is [here](code/outreach/)). Around 30 agencies got an email in the first week. Everything under [Designed for clients](#designed-for-clients) comes from that month.
 
 ## The role, step by step
 
@@ -86,7 +86,7 @@ Portals I've designed and pitched to agencies, each one with its screens and a p
 
 ### Twic · talent management agency
 
-A 31 page proposal with 13 screens split into management, admin, talent and PR.
+A 31 page proposal with 13 screens split into management, admin, talent and PR. [Full PDF](docs/twic-portal-proposal.pdf)
 
 ![Twic proposal pages](images/twic-proposal.jpg)
 
