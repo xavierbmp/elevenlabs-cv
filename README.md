@@ -29,9 +29,10 @@ The first to reply was Twic, a talent management agency for influencers, and it 
 | ROI | Real CPM per campaign, from the fees paid and the views delivered. My best campaigns got down to €1.2 CPM |
 | Invoices and payments | Invoices with automatic numbering, creator payments and margin per campaign, all in the platform. At Astratic I've handled over €200K in a single month between media and creator payments, with the accounting in Holded |
 | Integrations and webhooks | Apify, Zoho Mail, OpenRouter, Resend and Vercel Blob through their APIs, a Zoho webhook for replies and Vercel crons that run every minute, every 15 minutes or once a day depending on the job |
-| Reliability | Integrations have fallbacks. If an API key runs out the script moves to the next one, and if the webhook misses a reply the inbox gets checked on the next run. Secrets live in environment variables and never get printed, key changes go to an audit log and the core logic has unit tests in Vitest |
-| SQL and clean data | Postgres on Neon with Prisma, with server-side filters and checks before every import. Company and people names get normalized before they reach the CRM |
-| AI and LLMs | I build with Claude Code every day. Claude Code agents research companies and draft the first email for me to approve, and LLMs through OpenRouter clean up data with a fallback across models. [Claude explains it below](#a-note-from-claude) |
+| Reliability and monitoring | Integrations have fallbacks. If an API key runs out the script moves to the next one, and if the webhook misses a reply the inbox gets checked on the next run. Secrets live in environment variables and never get printed, key changes go to an audit log and the core logic has unit tests in Vitest. Monitoring is built into the app, where the team reports a bug with the page and the console errors attached |
+| SQL, clean data and docs | Postgres on Neon with Prisma, with server-side filters and checks before every import. Company and people names get normalized before they reach the CRM. Every workflow and decision is written down in a shared vault, so it stays maintainable |
+| AI and LLMs | I build with Claude Code every day and pick the model for each job. Claude Code agents research companies and draft the first email for me to approve, and LLMs through OpenRouter clean up data with a fallback across models. For content I've used GPT, Gemini, Flux and Kling to make creative variants and test hooks faster. [Claude explains it below](#a-note-from-claude) |
+| Working with non-technical teams | I've handled operations, legal, tax and finance at Astratic, and my proposals explain each automation to agency owners with no technical background |
 | Influencer platforms | Kolsquare, plus the IRM I built for Astratic |
 
 ## Built
@@ -84,11 +85,17 @@ The outreach part has 20 unit tests, `cd code && npm install && npm test`.
 
 > Hey there 👋 I'm Claude, the Claude Code that Xavier works with every day. He asked me to write this part myself, so here's how working with him looks from my side.
 >
-> He dictates by voice in Spanish, in long messages, so by now I know that "tweak" means Twic and "Call Square" means Kolsquare. He decides what gets built and why, and I write most of the code. Nothing counts as done until it's been checked end to end, and he holds me to that.
+> He dictates by voice in Spanish, so by now I know that "tweak" means Twic and "Call Square" means Kolsquare. He decides what gets built and why, and I write most of the code. Nothing counts as done until it's been checked end to end.
 >
-> Over time we've turned the way he works into 17 skills, plain instructions I follow every time. One runs the lead pipeline, with a cheap Haiku agent that lists companies from LinkedIn and a Sonnet agent per company that researches it and drafts the email for him to approve. Another picks up the bugs his team reports from a button in the portal, and the person who reported it gets an answer once I've fixed it. There's even one for how he writes, which is the one I used for this page.
+> His idea of AI first is pretty practical. We've turned the way he works into 17 skills I follow every time, and we pick the model for each job. A cheap Haiku agent lists companies from LinkedIn, a Sonnet agent per company researches it and drafts the email, and plain code takes over wherever the result has to be exact (an LLM cleans up brand names, contact details go through fixed rules). There's even a skill for how he writes, which is the one I used for this page.
 >
-> What matters goes into an Obsidian vault that works as our shared memory, and every session starts there. I'm not allowed to spend a cent on a paid API or push to production without asking him first, which, given how many scrapers we run, is probably wise.
+> He's just as strict about keeping the automations under control, and these are the rules I run by.
+>
+> - New outreach waits in a review queue until he approves it.
+> - If an API key runs out the next one takes over, and if a webhook misses a reply the inbox gets checked on the next run. LLM calls fall back to another model too.
+> - Secrets live in environment variables and never get printed, and paid APIs have a budget I can't go over without asking (given how many scrapers we run, probably wise).
+> - Changes leave an audit trail and the core logic has unit tests. Bug reports from his team come in with the page and the console errors attached.
+> - Every decision goes into an Obsidian vault with its why, so any workflow can be picked up months later.
 >
 > Claude, from Xavier's terminal
 
